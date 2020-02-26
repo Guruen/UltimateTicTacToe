@@ -1,6 +1,7 @@
 package ultimatetictactoe.game;
 
 import ultimatetictactoe.bot.IBot;
+import ultimatetictactoe.field.IField;
 import ultimatetictactoe.move.IMove;
 
 /**
@@ -132,13 +133,15 @@ public class GameManager {
     
     private void updateBoard(IMove move)
     {
-       //TODO: Update the board to the new state 
-        throw new UnsupportedOperationException("Not supported yet."); 
+        currentState.getField().getBoard()[move.getX()][move.getY()] = ""+currentPlayer;
     }
     
     private void updateMacroboard(IMove move)
     {
-       //TODO: Update the macroboard to the new state 
-       throw new UnsupportedOperationException("Not supported yet."); 
+        
+        int macroX = move.getX()/3;
+        int macroY = move.getY()/3;
+        
+        currentState.getField().getMacroboard()[macroX][macroY] = IField.AVAILABLE_FIELD; 
     }
 }

@@ -14,28 +14,35 @@ import javafx.fxml.Initializable;
 import ultimatetictactoe.game.GameManager;
 import ultimatetictactoe.game.GameState;
 import ultimatetictactoe.game.IGameState;
+import ultimatetictactoe.move.Move;
 
 /**
  *
  * @author Brian
  */
-public class MainController implements Initializable
-{
+public class MainController implements Initializable {
+
     private GameManager gm;
-    
+    IGameState gameState;
+
     @Override
-    public void initialize(URL url, ResourceBundle rb)
-    {
-        IGameState gameState = new GameState();
+    public void initialize(URL url, ResourceBundle rb) {
+        gameState = new GameState();
         gm = new GameManager(gameState);
-    }    
+    }
 
     @FXML
     private void clickCell(ActionEvent event) {
-        
         JFXButton btn = (JFXButton) event.getSource();
-        btn.setText("X");
+        boolean moveSucces = gm.updateGame(new Move(0, 0));
+        if (moveSucces) {
+            if (gameState.getMoveNumber() % 2 == 0) {
+                btn.setText("X");
+            } else {
+                btn.setText("O");
+            }
+        }
         //btn.setStyle("-fx-background-color: #0000FF; -fx-border-color: #000000");
     }
-    
+
 }

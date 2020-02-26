@@ -5,6 +5,7 @@
  */
 package ultimatetictactoe.game;
 
+import ultimatetictactoe.field.Field;
 import ultimatetictactoe.field.IField;
 
 /**
@@ -13,9 +14,17 @@ import ultimatetictactoe.field.IField;
  */
 public class GameState implements IGameState {
 
+    private IField field;
+    
+    public GameState() {
+       field = new Field(); 
+        
+    }
+
+        
     @Override
     public IField getField() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return field;
     }
 
     @Override
