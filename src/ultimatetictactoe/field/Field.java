@@ -57,14 +57,7 @@ public class Field implements IField {
         }
         return moveList;
 
-//        for (int x = 0; x < macroBoard.length; x++) {
-//            for (int y = 0; y < macroBoard[x].length; y++) {
-//                if (macroBoard[x][y] == AVAILABLE_FIELD)
-//                {
-//                    
-//                }
-//            }
-//        }
+
     }
 
     @Override
