@@ -32,24 +32,37 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         gameState = new GameState();
         gm = new GameManager(gameState);
+        creatAllCells();
 
-        UTTTButton btn = new UTTTButton();
-        btn.setPrefSize(30, 30);
-        btn.setMove(new Move(0, 0));
-        btn.setLayoutX(10);
-        btn.setLayoutY(10);
-        btn.setOnMouseClicked(event -> {
-            UTTTButton b = (UTTTButton) event.getSource();
-            boolean moveSucces = gm.updateGame(btn.getMove());
-            if (moveSucces) {
-                if (gameState.getMoveNumber() % 2 == 0) {
-                    b.setText("X");
-                } else {
-                    b.setText("O");
-                }
+    }
+
+    private void creatAllCells() {
+        int btnWidth = 30;
+        int btnHeight = 30;
+
+        for (int x = 0; x < 9; x++) {
+            for (int y = 0; y < 9; y++) {
+                UTTTButton btn = new UTTTButton();
+                btn.setPrefSize(btnWidth, btnHeight);
+                btn.setMove(new Move(x, y));
+                btn.setLayoutX(10 + btnWidth * x);
+                btn.setLayoutY(10 + btnHeight * y);
+                btn.setOnMouseClicked(event -> {
+                    UTTTButton b = (UTTTButton) event.getSource();
+                    boolean moveSucces = gm.updateGame(btn.getMove());
+                    if (moveSucces) {
+                        if (gameState.getMoveNumber() % 2 == 0) {
+                            b.setText("X");
+                        } else {
+                            b.setText("O");
+                        }
+                    }
+                });
+                AnchorPane.getChildren().add(btn);
             }
-        });
-        AnchorPane.getChildren().add(btn);
+
+        }
+
     }
 
     @FXML
