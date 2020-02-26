@@ -3,6 +3,7 @@ package ultimatetictactoe.game;
 import ultimatetictactoe.bot.IBot;
 import ultimatetictactoe.field.IField;
 import ultimatetictactoe.move.IMove;
+import ultimatetictactoe.move.Move;
 
 /**
  * This is a proposed GameManager for Ultimate Tic-Tac-Toe, the implementation
@@ -92,8 +93,11 @@ public class GameManager {
 
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
-        currentState.setMoveNumber(currentState.getMoveNumber()+1);
-   
+        currentState.setMoveNumber(currentState.getMoveNumber() + 1);
+        if (currentPlayer == 1) {
+            updateGame();
+        }
+
         return true;
     }
 
@@ -126,7 +130,7 @@ public class GameManager {
     }
 
     private Boolean verifyMoveLegality(IMove move) {
- 
+
         boolean isInActiveMicroboard = currentState.getField().isInActiveMicroboard(move.getX(), move.getY());
         boolean isAvailable = currentState.getField().getPlayerId(move.getX(), move.getY()).equals(IField.EMPTY_FIELD);
         return isInActiveMicroboard && isAvailable;

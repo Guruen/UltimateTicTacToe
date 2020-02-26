@@ -53,7 +53,7 @@ public class MainController implements Initializable {
                 btn.setLayoutY(10 + btnHeight * y);
                 btn.setOnMouseClicked(event -> {
                     UTTTButton b = (UTTTButton) event.getSource();
-                    boolean moveSucces = gm.updateGame(btn.getMove());
+                    boolean moveSucces = gm.updateGame(b.getMove());
                     if (moveSucces) {
                         if (gameState.getMoveNumber() % 2 == 0) {
                             b.setText("X");

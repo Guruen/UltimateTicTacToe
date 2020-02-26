@@ -5,13 +5,9 @@
  */
 package ultimatetictactoe.bot;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import ultimatetictactoe.field.Field;
-import ultimatetictactoe.field.IField;
 import ultimatetictactoe.game.IGameState;
 import ultimatetictactoe.move.IMove;
+import ultimatetictactoe.move.Move;
 
 /**
  *
@@ -19,21 +15,18 @@ import ultimatetictactoe.move.IMove;
  */
 public class Bot implements IBot {
     
-    private IField field;
-    
-    public Bot()
-    {
-        field = new Field();
-        
-    }
+  
     
     @Override
     public IMove doMove(IGameState state) {
         
-        List<IMove> list = new ArrayList<>();
-        list.addAll(field.getAvailableMoves());
-        Random rand = new Random();
-        return list.get(rand.nextInt(list.size()));
+        System.out.println("Bee Bop!");
+        
+        IMove move = state.getField().getAvailableMoves().get(0);
+
+        System.out.println(move);
+        return move;
+
     }
     
 }
