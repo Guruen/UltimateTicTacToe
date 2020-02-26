@@ -138,8 +138,8 @@ public class GameManager {
 
     private void updateMacroboard(IMove move) {
 
-        int macroX = move.getX() / 3;
-        int macroY = move.getY() / 3;
+        int macroX = move.getX() % 3;
+        int macroY = move.getY() % 3;
         String[][] macroBoard = currentState.getField().getMacroboard();
 
         if (currentState.getField().getMacroboard()[macroX][macroY] != IField.AVAILABLE_FIELD
