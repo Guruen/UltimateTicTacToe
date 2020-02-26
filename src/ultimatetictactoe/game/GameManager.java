@@ -93,7 +93,7 @@ public class GameManager {
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
         currentState.setMoveNumber(currentState.getMoveNumber()+1);
-
+   
         return true;
     }
 

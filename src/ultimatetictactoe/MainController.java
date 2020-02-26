@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import ultimatetictactoe.bot.Bot;
+import ultimatetictactoe.bot.IBot;
 import ultimatetictactoe.game.GameManager;
 import ultimatetictactoe.game.GameState;
 import ultimatetictactoe.game.IGameState;
@@ -24,13 +26,16 @@ public class MainController implements Initializable {
 
     private GameManager gm;
     IGameState gameState;
+    IBot bot;
     @FXML
     private AnchorPane AnchorPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         gameState = new GameState();
-        gm = new GameManager(gameState);
+        bot = new Bot();
+        gm = new GameManager(gameState, bot);
         creatAllCells();
 
     }

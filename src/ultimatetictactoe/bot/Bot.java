@@ -5,6 +5,11 @@
  */
 package ultimatetictactoe.bot;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import ultimatetictactoe.field.Field;
+import ultimatetictactoe.field.IField;
 import ultimatetictactoe.game.IGameState;
 import ultimatetictactoe.move.IMove;
 
@@ -13,10 +18,22 @@ import ultimatetictactoe.move.IMove;
  * @author BBran
  */
 public class Bot implements IBot {
-
+    
+    private IField field;
+    
+    public Bot()
+    {
+        field = new Field();
+        
+    }
+    
     @Override
     public IMove doMove(IGameState state) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        List<IMove> list = new ArrayList<>();
+        list.addAll(field.getAvailableMoves());
+        Random rand = new Random();
+        return list.get(rand.nextInt(list.size()));
     }
     
 }
