@@ -95,9 +95,6 @@ public class GameManager {
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
         currentState.setMoveNumber(currentState.getMoveNumber() + 1);
-        if (currentPlayer == 1) {
-            updateGame();
-        }
 
         return true;
     }
@@ -171,9 +168,8 @@ public class GameManager {
         }
 
     }
-    
-    public IMove getBotMove()
-    {
+
+    public IMove getBotMove() {
         return botMove;
     }
 }

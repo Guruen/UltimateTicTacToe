@@ -58,11 +58,11 @@ public class MainController implements Initializable {
                         if (gameState.getMoveNumber() % 2 == 0) {
                             b.setText("X");
                         } else {
-                            b.setText("O");
+                            System.out.println("does this run?");
                         }
                     }
                 });
-
+                
                 AnchorPane.getChildren().add(btn);
             }
 
