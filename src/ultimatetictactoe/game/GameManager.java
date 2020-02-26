@@ -32,6 +32,7 @@ public class GameManager {
     private GameMode mode = GameMode.HumanVsHuman;
     private IBot bot = null;
     private IBot bot2 = null;
+    private IMove botMove;
 
     /**
      * Set's the currentState so the game can begin. Game expected to be played
@@ -115,7 +116,7 @@ public class GameManager {
             //Check bot is not equal to null, and throw an exception if it is.
             assert (bot != null);
 
-            IMove botMove = bot.doMove(currentState);
+            botMove = bot.doMove(currentState);
 
             //Be aware that your bots might perform illegal moves.
             return updateGame(botMove);
@@ -169,5 +170,10 @@ public class GameManager {
             currentState.getField().getMacroboard()[macroX][macroY] = IField.AVAILABLE_FIELD;
         }
 
+    }
+    
+    public IMove getBotMove()
+    {
+        return botMove;
     }
 }

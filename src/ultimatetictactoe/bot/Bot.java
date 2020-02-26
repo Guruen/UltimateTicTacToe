@@ -7,7 +7,6 @@ package ultimatetictactoe.bot;
 
 import ultimatetictactoe.game.IGameState;
 import ultimatetictactoe.move.IMove;
-import ultimatetictactoe.move.Move;
 
 /**
  *
@@ -25,6 +24,7 @@ public class Bot implements IBot {
         IMove move = state.getField().getAvailableMoves().get(0);
 
         System.out.println(move);
+        
         return move;
 
     }

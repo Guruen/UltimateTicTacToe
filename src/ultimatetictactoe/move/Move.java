@@ -31,5 +31,9 @@ public class Move implements IMove {
     public int getY() {
         return y;
     }
-    
+ 
+    @Override
+    public String toString(){
+        return x + "," + y;
+    }
 }
