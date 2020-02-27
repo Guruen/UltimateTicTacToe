@@ -22,7 +22,8 @@ import ultimatetictactoe.move.Move;
  *
  * @author Brian
  */
-public class MainController implements Initializable {
+public class MainController implements Initializable
+{
 
     private GameManager gm;
     IGameState gameState;
@@ -31,7 +32,8 @@ public class MainController implements Initializable {
     private AnchorPane AnchorPane;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
 
         gameState = new GameState();
         bot = new Bot();
@@ -40,38 +42,69 @@ public class MainController implements Initializable {
 
     }
 
-    private void creatAllCells() {
+    private void creatAllCells()
+    {
         int btnWidth = 30;
         int btnHeight = 30;
 
-        for (int x = 0; x < 9; x++) {
-            for (int y = 0; y < 9; y++) {
+        for (int x = 0; x < 9; x++)
+        {
+            for (int y = 0; y < 9; y++)
+            {
+                String sX = x + "";
+                String sY = y + "";
                 UTTTButton btn = new UTTTButton();
                 btn.setPrefSize(btnWidth, btnHeight);
                 btn.setMove(new Move(x, y));
+                btn.setId(sX + sY);
                 btn.setLayoutX(10 + btnWidth * x);
                 btn.setLayoutY(10 + btnHeight * y);
-                btn.setOnMouseClicked(event -> {
+                btn.setOnMouseClicked(event ->
+                {
                     UTTTButton b = (UTTTButton) event.getSource();
                     boolean moveSucces = gm.updateGame(b.getMove());
-                    if (moveSucces) {
-                        if (gameState.getMoveNumber() % 2 == 0) {
+                    if (moveSucces)
+                    {
+                        if (gameState.getMoveNumber() % 2 == 0)
+                        {
                             b.setText("X");
-                        } else {
-                            System.out.println("does this run?");
+                        } else
+                        {
+                            b.setText("O");
                         }
+                        botMove();
                     }
                 });
-                
                 AnchorPane.getChildren().add(btn);
             }
+        }
 
+    }
+
+    private void botMove()
+    {
+        gm.updateGame();
+
+        String x = Integer.toString(gm.getBotMove().getX());
+        String y = Integer.toString(gm.getBotMove().getY());
+
+        String findBtn = "#" + x + y;
+
+        UTTTButton foundBtn = (UTTTButton) AnchorPane.lookup(findBtn);
+
+        if (gameState.getMoveNumber() % 2 == 0)
+        {
+            foundBtn.setText("X");
+        } else
+        {
+            foundBtn.setText("O");
         }
 
     }
 
     @FXML
-    private void clickCell(ActionEvent event) {
+    private void clickCell(ActionEvent event)
+    {
 
         //btn.setStyle("-fx-background-color: #0000FF; -fx-border-color: #000000");
     }
