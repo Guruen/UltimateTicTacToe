@@ -180,28 +180,28 @@ public class GameManager {
         String[][] board = currentState.getField().getBoard();
 
         for (int x = 0; x < board.length-2; x++) {
-
+            //horisontal
             if (board[x][0+x].equals(board[x][1+x]) && board[x][0+x].equals(board[x][2+x]) && 
                 !board[x][0+x].equals(".") && !board[x][1+x].equals(".") && !board[x][2+x].equals(".")) {
                 
                 System.out.println("Winner");
                 break;
             }
-
+            //vertikal
             if (board[0+x][x].equals(board[1+x][x]) && board[0+x][x].equals(board[2+x][x]) && 
                 !board[0+x][x].equals(".") && !board[1+x][x].equals(".") && !board[2+x][x].equals(".")) {
                 
                 System.out.println("Winner");
                 break;
             }
-            
+            //top left to buttom right
             if (board[0+x][0+x].equals(board[1+x][1+x]) && board[0+x][0+x].equals(board[2+x][2+x]) && 
                 !board[0+x][0+x].equals(".") && !board[1+x][1+x].equals(".") && !board[2+x][2+x].equals(".")) {
                 
                 System.out.println("Winner");
                 break;
             }
-            
+            //top right to buttom left
             if (board[2+x][0+x].equals(board[1+x][1+x]) && board[2+x][0+x].equals(board[0+x][2+x]) && 
                 !board[2+x][0+x].equals(".") && !board[1+x][1+x].equals(".") && !board[0+x][2+x].equals(".")) {
                 
