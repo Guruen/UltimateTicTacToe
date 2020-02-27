@@ -179,31 +179,31 @@ public class GameManager {
     private void findMacroWinner() {
         String[][] board = currentState.getField().getBoard();
 
-        for (int x = 0; x < board.length; x++) {
+        for (int x = 0; x < board.length-2; x++) {
 
-            if (board[x][0].equals(board[x][1]) && board[x][0].equals(board[x][2]) && 
-                !board[x][0].equals(".") && !board[x][1].equals(".") && !board[x][2].equals(".")) {
+            if (board[x][0+x].equals(board[x][1+x]) && board[x][0+x].equals(board[x][2+x]) && 
+                !board[x][0+x].equals(".") && !board[x][1+x].equals(".") && !board[x][2+x].equals(".")) {
                 
                 System.out.println("Winner");
                 break;
             }
 
-            if (board[0][x].equals(board[1][x]) && board[0][x].equals(board[2][x]) && 
-                !board[0][x].equals(".") && !board[1][x].equals(".") && !board[2][x].equals(".")) {
+            if (board[0+x][x].equals(board[1+x][x]) && board[0+x][x].equals(board[2+x][x]) && 
+                !board[0+x][x].equals(".") && !board[1+x][x].equals(".") && !board[2+x][x].equals(".")) {
                 
                 System.out.println("Winner");
                 break;
             }
             
-            if (board[0][0].equals(board[1][1]) && board[0][0].equals(board[2][2]) && 
-                !board[0][0].equals(".") && !board[1][1].equals(".") && !board[2][2].equals(".")) {
+            if (board[0+x][0+x].equals(board[1+x][1+x]) && board[0+x][0+x].equals(board[2+x][2+x]) && 
+                !board[0+x][0+x].equals(".") && !board[1+x][1+x].equals(".") && !board[2+x][2+x].equals(".")) {
                 
                 System.out.println("Winner");
                 break;
             }
             
-            if (board[2][0].equals(board[1][1]) && board[2][0].equals(board[0][2]) && 
-                !board[2][0].equals(".") && !board[1][1].equals(".") && !board[0][2].equals(".")) {
+            if (board[2+x][0+x].equals(board[1+x][1+x]) && board[2+x][0+x].equals(board[0+x][2+x]) && 
+                !board[2+x][0+x].equals(".") && !board[1+x][1+x].equals(".") && !board[0+x][2+x].equals(".")) {
                 
                 System.out.println("Winner");
                 break;
