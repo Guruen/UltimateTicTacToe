@@ -46,6 +46,8 @@ public class MainController implements Initializable
     {
         int btnWidth = 30;
         int btnHeight = 30;
+        int boardOffsetEdge = 20;
+        int macroBoardPadding = 8;
 
         for (int x = 0; x < 9; x++)
         {
@@ -57,8 +59,12 @@ public class MainController implements Initializable
                 btn.setPrefSize(btnWidth, btnHeight);
                 btn.setMove(new Move(x, y));
                 btn.setId(sX + sY);
-                btn.setLayoutX(10 + btnWidth * x);
-                btn.setLayoutY(10 + btnHeight * y);
+
+                int paddingX = boardOffsetEdge + (x/3 )* macroBoardPadding;
+                int paddingY = boardOffsetEdge + (y/3) * macroBoardPadding;
+
+                btn.setLayoutX(paddingX + btnWidth * x);
+                btn.setLayoutY(paddingY + btnHeight * y);
                 btn.setOnMouseClicked(event ->
                 {
                     UTTTButton b = (UTTTButton) event.getSource();
