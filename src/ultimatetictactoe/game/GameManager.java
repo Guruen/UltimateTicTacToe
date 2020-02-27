@@ -96,7 +96,7 @@ public class GameManager {
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
         currentState.setMoveNumber(currentState.getMoveNumber() + 1);
-        
+
         findMacroWinner();
 
         return true;
@@ -175,20 +175,41 @@ public class GameManager {
     public IMove getBotMove() {
         return botMove;
     }
-    
-    private void findMacroWinner()
-    {
+
+    private void findMacroWinner() {
         String[][] board = currentState.getField().getBoard();
-        System.out.println(board[0][0]);
-        System.out.println(board[0][1]);
-        System.out.println(board[0][3]);
-        
-        if (board[0][0].equals(board[0][1]) && board[0][0].equals(board[0][2]))
-        {
-            System.out.println("Winner");
-        } else
-        {
-            System.out.println("No winner yet");
+
+        for (int x = 0; x < board.length; x++) {
+
+            if (board[x][0].equals(board[x][1]) && board[x][0].equals(board[x][2]) && 
+                !board[x][0].equals(".") && !board[x][1].equals(".") && !board[x][2].equals(".")) {
+                
+                System.out.println("Winner");
+                break;
+            }
+
+            if (board[0][x].equals(board[1][x]) && board[0][x].equals(board[2][x]) && 
+                !board[0][x].equals(".") && !board[1][x].equals(".") && !board[2][x].equals(".")) {
+                
+                System.out.println("Winner");
+                break;
+            }
+            
+            if (board[0][0].equals(board[1][1]) && board[0][0].equals(board[2][2]) && 
+                !board[0][0].equals(".") && !board[1][1].equals(".") && !board[2][2].equals(".")) {
+                
+                System.out.println("Winner");
+                break;
+            }
+            
+            if (board[2][0].equals(board[1][1]) && board[2][0].equals(board[0][2]) && 
+                !board[2][0].equals(".") && !board[1][1].equals(".") && !board[0][2].equals(".")) {
+                
+                System.out.println("Winner");
+                break;
+            }
+
         }
+
     }
 }
