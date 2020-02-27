@@ -1,6 +1,7 @@
 package ultimatetictactoe.game;
 
 import ultimatetictactoe.bot.IBot;
+import ultimatetictactoe.field.Field;
 import ultimatetictactoe.field.IField;
 import ultimatetictactoe.move.IMove;
 import ultimatetictactoe.move.Move;
@@ -95,6 +96,8 @@ public class GameManager {
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
         currentState.setMoveNumber(currentState.getMoveNumber() + 1);
+        
+        findMacroWinner();
 
         return true;
     }
@@ -171,5 +174,21 @@ public class GameManager {
 
     public IMove getBotMove() {
         return botMove;
+    }
+    
+    private void findMacroWinner()
+    {
+        String[][] board = currentState.getField().getBoard();
+        System.out.println(board[0][0]);
+        System.out.println(board[0][1]);
+        System.out.println(board[0][3]);
+        
+        if (board[0][0].equals(board[0][1]) && board[0][0].equals(board[0][2]))
+        {
+            System.out.println("Winner");
+        } else
+        {
+            System.out.println("No winner yet");
+        }
     }
 }
