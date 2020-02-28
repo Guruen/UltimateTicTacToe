@@ -178,38 +178,69 @@ public class GameManager {
 
     private void findMacroWinner() {
         String[][] board = currentState.getField().getBoard();
+        int b = 0;
+        int n = 0;
+        for (int y = 0; y < 3; y++) {
+            for (int i = 0; i < 3; i++) {
+                for (int x = 0; x < 3; x++) {
+                    if ( //verital    
+                            board[b + x][n + 0].equals(board[b + x][n + 1]) && board[b + x][n + 0].equals(board[b + x][n + 2])
+                            && !board[b + x][n + 0].equals(".") && !board[b + x][n + 1].equals(".") && !board[b + x][n + 2].equals(".")
+                            //horizontal
+                            || board[n + 0][b + x].equals(board[n + 1][b + x]) && board[n + 0][b + x].equals(board[n + 2][b + x])
+                            && !board[n + 0][b + x].equals(".") && !board[n + 1][b + x].equals(".") && !board[n + 2][b + x].equals(".")
+                            //top left to buttom rigth
+                            || board[b + 0][n + 0].equals(board[b + 1][n + 1]) && board[b + 0][n + 0].equals(board[b + 2][n + 2])
+                            && !board[b + 0][n + 0].equals(".") && !board[b + 1][n + 1].equals(".") && !board[b + 2][n + 2].equals(".")
+                            //top right to buttom left
+                            || board[b + 2][n + 0].equals(board[b + 1][n + 1]) && board[b + 2][n + 0].equals(board[b + 0][n + 2])
+                            && !board[b + 2][n + 0].equals(".") && !board[b + 1][n + 1].equals(".") && !board[b + 0][n + 2].equals(".")) {
 
-        for (int x = 0; x < board.length-2; x++) {
-            //horisontal
-            if (board[x][0+x].equals(board[x][1+x]) && board[x][0+x].equals(board[x][2+x]) && 
-                !board[x][0+x].equals(".") && !board[x][1+x].equals(".") && !board[x][2+x].equals(".")) {
-                
-                System.out.println("Winner");
-                break;
+                        if (b == 0 && n == 0)
+                        {
+                            System.out.println("board 1 has been won");
+                        }
+                        if (b == 3 && n == 0)
+                        {
+                            System.out.println("board 2 has been won");
+                        }
+                        if (b == 6 && n == 0)
+                        {
+                            System.out.println("board 3 has been won");
+                        }
+                        if (b == 0 && n == 3)
+                        {
+                            System.out.println("board 4 has been won");
+                        }
+                        if (b == 3 && n == 3)
+                        {
+                            System.out.println("board 5 has been won");
+                        }
+                        if (b == 6 && n == 3)
+                        {
+                            System.out.println("board 6 has been won");
+                        }
+                        if (b == 0 && n == 6)
+                        {
+                            System.out.println("board 7 has been won");
+                        }
+                        if (b == 3 && n == 6)
+                        {
+                            System.out.println("board 8 has been won");
+                        }
+                        if (b == 6 && n == 6)
+                        {
+                            System.out.println("board 9 has been won");
+                        }
+                    }
+                }
+                b = b + 3;
             }
-            //vertikal
-            if (board[0+x][x].equals(board[1+x][x]) && board[0+x][x].equals(board[2+x][x]) && 
-                !board[0+x][x].equals(".") && !board[1+x][x].equals(".") && !board[2+x][x].equals(".")) {
-                
-                System.out.println("Winner");
-                break;
-            }
-            //top left to buttom right
-            if (board[0+x][0+x].equals(board[1+x][1+x]) && board[0+x][0+x].equals(board[2+x][2+x]) && 
-                !board[0+x][0+x].equals(".") && !board[1+x][1+x].equals(".") && !board[2+x][2+x].equals(".")) {
-                
-                System.out.println("Winner");
-                break;
-            }
-            //top right to buttom left
-            if (board[2+x][0+x].equals(board[1+x][1+x]) && board[2+x][0+x].equals(board[0+x][2+x]) && 
-                !board[2+x][0+x].equals(".") && !board[1+x][1+x].equals(".") && !board[0+x][2+x].equals(".")) {
-                
-                System.out.println("Winner");
-                break;
-            }
+            b = 0;
+            n = n + 3;
 
         }
 
     }
+
 }
