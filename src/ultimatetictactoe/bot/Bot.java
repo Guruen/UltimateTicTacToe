@@ -12,21 +12,28 @@ import ultimatetictactoe.move.IMove;
  *
  * @author BBran
  */
-public class Bot implements IBot {
-    
-  
-    
+public class Bot implements IBot
+{
+
+    private static final String BOTNAME = "BeeBop!";
+
     @Override
-    public IMove doMove(IGameState state) {
-        
+    public IMove doMove(IGameState state)
+    {
+
         System.out.println("Bee Bop!");
-        
+
         IMove move = state.getField().getAvailableMoves().get(0);
 
         System.out.println(move);
-        
+
         return move;
 
     }
-    
+
+    @Override
+    public String getBotName()
+    {
+        return BOTNAME;
+    }
 }

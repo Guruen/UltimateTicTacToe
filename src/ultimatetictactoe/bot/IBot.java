@@ -17,4 +17,5 @@ public interface IBot {
      */
     IMove doMove(IGameState state);
     
+    String getBotName();
 }
