@@ -5,6 +5,8 @@
  */
 package ultimatetictactoe.bot;
 
+import java.util.List;
+import java.util.Random;
 import ultimatetictactoe.game.IGameState;
 import ultimatetictactoe.move.IMove;
 
@@ -12,20 +14,18 @@ import ultimatetictactoe.move.IMove;
  *
  * @author BBran
  */
-public class Bot implements IBot
+public class RandoBot implements IBot
 {
 
-    private static final String BOTNAME = "Bee Bop!";
+    private static final String BOTNAME = "Randy Random";
+    private Random rand = new Random();
 
     @Override
     public IMove doMove(IGameState state)
     {
-
-        System.out.println("Bee Bop!");
-
-        IMove move = state.getField().getAvailableMoves().get(0);
-
-        System.out.println(move);
+        List<IMove> moves = state.getField().getAvailableMoves();
+        
+        IMove move = moves.get(rand.nextInt(moves.size()));
 
         return move;
 
