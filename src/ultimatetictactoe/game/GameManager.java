@@ -196,40 +196,31 @@ public class GameManager {
                             || board[b + 2][n + 0].equals(board[b + 1][n + 1]) && board[b + 2][n + 0].equals(board[b + 0][n + 2])
                             && !board[b + 2][n + 0].equals(".") && !board[b + 1][n + 1].equals(".") && !board[b + 0][n + 2].equals(".")) {
 
-                        if (b == 0 && n == 0)
-                        {
+                        if (b == 0 && n == 0) {
                             System.out.println("board 1 has been won");
                         }
-                        if (b == 3 && n == 0)
-                        {
+                        if (b == 3 && n == 0) {
                             System.out.println("board 2 has been won");
                         }
-                        if (b == 6 && n == 0)
-                        {
+                        if (b == 6 && n == 0) {
                             System.out.println("board 3 has been won");
                         }
-                        if (b == 0 && n == 3)
-                        {
+                        if (b == 0 && n == 3) {
                             System.out.println("board 4 has been won");
                         }
-                        if (b == 3 && n == 3)
-                        {
+                        if (b == 3 && n == 3) {
                             System.out.println("board 5 has been won");
                         }
-                        if (b == 6 && n == 3)
-                        {
+                        if (b == 6 && n == 3) {
                             System.out.println("board 6 has been won");
                         }
-                        if (b == 0 && n == 6)
-                        {
+                        if (b == 0 && n == 6) {
                             System.out.println("board 7 has been won");
                         }
-                        if (b == 3 && n == 6)
-                        {
+                        if (b == 3 && n == 6) {
                             System.out.println("board 8 has been won");
                         }
-                        if (b == 6 && n == 6)
-                        {
+                        if (b == 6 && n == 6) {
                             System.out.println("board 9 has been won");
                         }
                     }
