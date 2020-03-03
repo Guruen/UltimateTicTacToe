@@ -34,6 +34,7 @@ public class GameManager {
     private IBot bot = null;
     private IBot bot2 = null;
     private IMove botMove;
+    private String[] winner = new String[9];
 
     /**
      * Set's the currentState so the game can begin. Game expected to be played
@@ -93,11 +94,12 @@ public class GameManager {
         updateBoard(move);
         updateMacroboard(move);
 
+        //Checks for a Winner in MacroBoard
+        findMacroWinner();
+
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
         currentState.setMoveNumber(currentState.getMoveNumber() + 1);
-
-        findMacroWinner();
 
         return true;
     }
@@ -180,6 +182,7 @@ public class GameManager {
         String[][] board = currentState.getField().getBoard();
         int b = 0;
         int n = 0;
+
         for (int y = 0; y < 3; y++) {
             for (int i = 0; i < 3; i++) {
                 for (int x = 0; x < 3; x++) {
@@ -196,32 +199,60 @@ public class GameManager {
                             || board[b + 2][n + 0].equals(board[b + 1][n + 1]) && board[b + 2][n + 0].equals(board[b + 0][n + 2])
                             && !board[b + 2][n + 0].equals(".") && !board[b + 1][n + 1].equals(".") && !board[b + 0][n + 2].equals(".")) {
 
-                        if (b == 0 && n == 0) {
-                            System.out.println("board 1 has been won");
+                        //board 1
+                        if (b == 0 && n == 0 && winner[0] == null) {
+
+                            winner[0] = currentPlayer + "";
+
+                            System.out.println("player " + winner[0] + " has won this board");
                         }
-                        if (b == 3 && n == 0) {
-                            System.out.println("board 2 has been won");
+                        //board 2
+                        if (b == 3 && n == 0 && winner[1] == null) {
+                            winner[1] = currentPlayer + "";
+
+                            System.out.println("player " + winner[1] + " has won this board");
                         }
-                        if (b == 6 && n == 0) {
-                            System.out.println("board 3 has been won");
+                        //board 3
+                        if (b == 6 && n == 0 && winner[2] == null) {
+                            winner[2] = currentPlayer + "";
+
+                            System.out.println("player " + winner[2] + " has won this board");
                         }
-                        if (b == 0 && n == 3) {
-                            System.out.println("board 4 has been won");
+                        //board 4
+                        if (b == 0 && n == 3 && winner[3] == null) {
+                            winner[3] = currentPlayer + "";
+
+                            System.out.println("player " + winner[3] + " has won this board");
                         }
-                        if (b == 3 && n == 3) {
-                            System.out.println("board 5 has been won");
+                        //board 5
+                        if (b == 3 && n == 3 && winner[4] == null) {
+                            winner[4] = currentPlayer + "";
+
+                            System.out.println("player " + winner[4] + " has won this board");
                         }
-                        if (b == 6 && n == 3) {
-                            System.out.println("board 6 has been won");
+                        //board 6
+                        if (b == 6 && n == 3 && winner[5] == null) {
+                            winner[5] = currentPlayer + "";
+
+                            System.out.println("player " + winner[5] + " has won this board");
                         }
-                        if (b == 0 && n == 6) {
-                            System.out.println("board 7 has been won");
+                        //board 7
+                        if (b == 0 && n == 6 && winner[6] == null) {
+                            winner[6] = currentPlayer + "";
+
+                            System.out.println("player " + winner[6] + " has won this board");
                         }
-                        if (b == 3 && n == 6) {
-                            System.out.println("board 8 has been won");
+                        //board 8
+                        if (b == 3 && n == 6 && winner[7] == null) {
+                            winner[7] = currentPlayer + "";
+
+                            System.out.println("player " + winner[7] + " has won this board");
                         }
-                        if (b == 6 && n == 6) {
-                            System.out.println("board 9 has been won");
+                        //board 9
+                        if (b == 6 && n == 6 && winner[8] == null) {
+                            winner[8] = currentPlayer + "";
+
+                            System.out.println("player " + winner[8] + " has won this board");
                         }
                     }
                 }
@@ -230,6 +261,19 @@ public class GameManager {
             b = 0;
             n = n + 3;
 
+        }
+
+    }
+
+    private void findBoardWinner() {
+
+        int q = 0;
+
+        for (int x = 0; x < 3; x++) {
+            if (winner[0+q].equals(winner[1+q]) && winner[0+q].equals(winner[2+q]) && winner[0+q] != null) {
+                System.out.println("We have a winner");
+            }
+            q = q + 3;
         }
 
     }
