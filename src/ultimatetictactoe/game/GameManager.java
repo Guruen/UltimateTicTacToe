@@ -186,10 +186,10 @@ public class GameManager {
         for (int y = 0; y < 3; y++) {
             for (int i = 0; i < 3; i++) {
                 for (int x = 0; x < 3; x++) {
-                    if ( //verital    
+                    if ( //horizontal   
                             board[b + x][n + 0].equals(board[b + x][n + 1]) && board[b + x][n + 0].equals(board[b + x][n + 2])
                             && !board[b + x][n + 0].equals(".") && !board[b + x][n + 1].equals(".") && !board[b + x][n + 2].equals(".")
-                            //horizontal
+                            //verital
                             || board[n + 0][b + x].equals(board[n + 1][b + x]) && board[n + 0][b + x].equals(board[n + 2][b + x])
                             && !board[n + 0][b + x].equals(".") && !board[n + 1][b + x].equals(".") && !board[n + 2][b + x].equals(".")
                             //top left to buttom rigth
@@ -204,55 +204,55 @@ public class GameManager {
 
                             winner[0] = currentPlayer + "";
 
-                            System.out.println("player " + winner[0] + " has won this board");
+                            System.out.println("player " + winner[0] + " has won board 1");
                         }
                         //board 2
                         if (b == 3 && n == 0 && winner[1] == null) {
                             winner[1] = currentPlayer + "";
 
-                            System.out.println("player " + winner[1] + " has won this board");
+                            System.out.println("player " + winner[1] + " has won board 2");
                         }
                         //board 3
                         if (b == 6 && n == 0 && winner[2] == null) {
                             winner[2] = currentPlayer + "";
 
-                            System.out.println("player " + winner[2] + " has won this board");
+                            System.out.println("player " + winner[2] + " has won board 3");
                         }
                         //board 4
                         if (b == 0 && n == 3 && winner[3] == null) {
                             winner[3] = currentPlayer + "";
 
-                            System.out.println("player " + winner[3] + " has won this board");
+                            System.out.println("player " + winner[3] + " has won board 4");
                         }
                         //board 5
                         if (b == 3 && n == 3 && winner[4] == null) {
                             winner[4] = currentPlayer + "";
 
-                            System.out.println("player " + winner[4] + " has won this board");
+                            System.out.println("player " + winner[4] + " has won board 5");
                         }
                         //board 6
                         if (b == 6 && n == 3 && winner[5] == null) {
                             winner[5] = currentPlayer + "";
 
-                            System.out.println("player " + winner[5] + " has won this board");
+                            System.out.println("player " + winner[5] + " has won board 6");
                         }
                         //board 7
                         if (b == 0 && n == 6 && winner[6] == null) {
                             winner[6] = currentPlayer + "";
 
-                            System.out.println("player " + winner[6] + " has won this board");
+                            System.out.println("player " + winner[6] + " has won board 7");
                         }
                         //board 8
                         if (b == 3 && n == 6 && winner[7] == null) {
                             winner[7] = currentPlayer + "";
 
-                            System.out.println("player " + winner[7] + " has won this board");
+                            System.out.println("player " + winner[7] + " has won board 8");
                         }
                         //board 9
                         if (b == 6 && n == 6 && winner[8] == null) {
                             winner[8] = currentPlayer + "";
 
-                            System.out.println("player " + winner[8] + " has won this board");
+                            System.out.println("player " + winner[8] + " has won board 9");
                         }
                     }
                 }
@@ -269,11 +269,23 @@ public class GameManager {
 
         int q = 0;
 
-        for (int x = 0; x < 3; x++) {
-            if (winner[0+q].equals(winner[1+q]) && winner[0+q].equals(winner[2+q]) && winner[0+q] != null) {
-                System.out.println("We have a winner");
+        for (int y = 0; y < 2; y++) {
+            for (int x = 0; x < 3; x++) {
+                if (//checks horizontally
+                        winner[0 + q].equals(y) && winner[1 + q].equals(y) && winner[2 + q].equals(y)
+                        || winner[0 + x].equals(y) && winner[4 + x].equals(y) && winner[6 + x].equals(y)) {
+                    System.out.println("player " + y + " has Won");
+                }
+                q = q + 3;
             }
-            q = q + 3;
+            
+            q = 0;
+
+            if (winner[0].equals(y) && winner[5].equals(y) && winner[8].equals(y)
+                    || winner[2].equals(y) && winner[5].equals(y) && winner[6].equals(y)) {
+                System.out.println("player " + y + " has Won");
+            }
+
         }
 
     }
