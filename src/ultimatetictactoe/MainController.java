@@ -131,7 +131,6 @@ public class MainController implements Initializable
 
             foundBtn.setEffect(shadow);
         }
-
     }
 
     private void removeShadows()
@@ -155,7 +154,6 @@ public class MainController implements Initializable
         } catch (Exception e)
         {
         }
-
     }
 
     @FXML
