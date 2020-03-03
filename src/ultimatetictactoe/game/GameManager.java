@@ -97,7 +97,7 @@ public class GameManager {
         currentPlayer = (currentPlayer + 1) % 2;
         currentState.setMoveNumber(currentState.getMoveNumber() + 1);
         
-        findMacroWinner();
+//        findMacroWinner();
 
         return true;
     }
