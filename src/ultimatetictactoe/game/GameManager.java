@@ -96,6 +96,7 @@ public class GameManager {
 
         //Checks for a Winner in MacroBoard
         findMacroWinner();
+        findBoardWinner();
 
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
@@ -207,19 +208,19 @@ public class GameManager {
                             System.out.println("player " + winner[0] + " has won board 1");
                         }
                         //board 2
-                        if (b == 3 && n == 0 && winner[1] == null) {
+                        if (b == 0 && n == 3 && winner[1] == null) {
                             winner[1] = currentPlayer + "";
 
                             System.out.println("player " + winner[1] + " has won board 2");
                         }
                         //board 3
-                        if (b == 6 && n == 0 && winner[2] == null) {
+                        if (b == 0 && n == 6 && winner[2] == null) {
                             winner[2] = currentPlayer + "";
 
                             System.out.println("player " + winner[2] + " has won board 3");
                         }
                         //board 4
-                        if (b == 0 && n == 3 && winner[3] == null) {
+                        if (b == 3 && n == 0 && winner[3] == null) {
                             winner[3] = currentPlayer + "";
 
                             System.out.println("player " + winner[3] + " has won board 4");
@@ -231,19 +232,19 @@ public class GameManager {
                             System.out.println("player " + winner[4] + " has won board 5");
                         }
                         //board 6
-                        if (b == 6 && n == 3 && winner[5] == null) {
+                        if (b == 3 && n == 6 && winner[5] == null) {
                             winner[5] = currentPlayer + "";
 
                             System.out.println("player " + winner[5] + " has won board 6");
                         }
                         //board 7
-                        if (b == 0 && n == 6 && winner[6] == null) {
+                        if (b == 6 && n == 0 && winner[6] == null) {
                             winner[6] = currentPlayer + "";
 
                             System.out.println("player " + winner[6] + " has won board 7");
                         }
                         //board 8
-                        if (b == 3 && n == 6 && winner[7] == null) {
+                        if (b == 6 && n == 3 && winner[7] == null) {
                             winner[7] = currentPlayer + "";
 
                             System.out.println("player " + winner[7] + " has won board 8");
@@ -269,24 +270,30 @@ public class GameManager {
 
         int q = 0;
 
-        for (int y = 0; y < 2; y++) {
+        try {
+            for (int y = 0; y < 2; y++) {
             for (int x = 0; x < 3; x++) {
                 if (//checks horizontally
-                        winner[0 + q].equals(y) && winner[1 + q].equals(y) && winner[2 + q].equals(y)
-                        || winner[0 + x].equals(y) && winner[4 + x].equals(y) && winner[6 + x].equals(y)) {
+                        winner[0 + q].equals(y+"") && winner[1 + q].equals(y+"") && winner[2 + q].equals(y+"")
+                        || winner[0 + x].equals(y+"") && winner[4 + x].equals(y+"") && winner[6 + x].equals(y+"")) {
                     System.out.println("player " + y + " has Won");
                 }
                 q = q + 3;
             }
-            
             q = 0;
 
-            if (winner[0].equals(y) && winner[5].equals(y) && winner[8].equals(y)
-                    || winner[2].equals(y) && winner[5].equals(y) && winner[6].equals(y)) {
+            if (winner[0].equals(y+"") && winner[5].equals(y+"") && winner[8].equals(y+"")
+                    || winner[2].equals(y+"") && winner[5].equals(y+"") && winner[6].equals(y+"")) {
                 System.out.println("player " + y + " has Won");
             }
 
         }
+        } catch (Exception e) {
+        }
+        
+        
+        
+        
 
     }
 

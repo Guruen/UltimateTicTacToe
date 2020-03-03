@@ -41,7 +41,7 @@ public class MainController implements Initializable
 
         gameState = new GameState();
         bot = new Bot();
-        gm = new GameManager(gameState, bot);
+        gm = new GameManager(gameState);
         creatAllCells();
         
     }
@@ -82,7 +82,7 @@ public class MainController implements Initializable
                         {
                             b.setText("O");
                         }
-                        botMove();
+                        //botMove();
                         removeShadows();
                         setShadowsOnButtons();
                     }
