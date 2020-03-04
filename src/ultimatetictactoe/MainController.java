@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import ultimatetictactoe.bot.Bot;
 import ultimatetictactoe.bot.IBot;
+import ultimatetictactoe.bot.mySpot;
 import ultimatetictactoe.game.GameManager;
 import ultimatetictactoe.game.GameState;
 import ultimatetictactoe.game.IGameState;
@@ -34,7 +35,7 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         gameState = new GameState();
-        bot = new Bot();
+        bot = new mySpot();
         gm = new GameManager(gameState, bot);
         creatAllCells();
 
