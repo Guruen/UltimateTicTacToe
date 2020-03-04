@@ -18,7 +18,7 @@ import ultimatetictactoe.move.Move;
  */
 public class mySpot1 implements IBot {
 
-    private static final String BOTNAME = "Gimme That Spot!";
+    private static final String BOTNAME = "Compiling []]]]]......} 42%";
     private String[][] localBoard = new String[9][9];
     private int indexPlus;
     private int indexMinus;
