@@ -275,7 +275,7 @@ public class GameManager {
             for (int x = 0; x < 3; x++) {
                 if (//checks horizontally
                         winner[0 + q].equals(y+"") && winner[1 + q].equals(y+"") && winner[2 + q].equals(y+"")
-                        || winner[0 + x].equals(y+"") && winner[4 + x].equals(y+"") && winner[6 + x].equals(y+"")) {
+                        || winner[0 + x].equals(y+"") && winner[3 + x].equals(y+"") && winner[6 + x].equals(y+"")) {
                     System.out.println("player " + y + " has Won");
                 }
                 q = q + 3;
